@@ -1,5 +1,5 @@
 import * as views from "./views";
 
-export default (state) => `
+export default state => `
   ${views[state.view](state)}
 `;
