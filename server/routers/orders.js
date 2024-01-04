@@ -1,7 +1,7 @@
 import { Router } from "express";
 import Order from "../models/order.js";
 import Customer from "../models/customer.js";
-import Pizza from "../models/pizza.js";
+import Pizza from "../models/pizzas.js";
 
 const router = Router();
 
