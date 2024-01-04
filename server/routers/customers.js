@@ -1,14 +1,14 @@
 import { Router } from "express";
-import Pizza from "../models/pizza.js";
+import Customer from "../models/customer.js";
 
 const router = Router();
 
 // Create pizza route
 router.post("/", async (request, response) => {
   try {
-    const newPizza = new Pizza(request.body);
+    const newCustomer = new Customer(request.body);
 
-    const data = await newPizza.save();
+    const data = await newCustomer.save();
 
     response.json(data);
   } catch (error) {
@@ -28,7 +28,7 @@ router.get("/", async (request, response) => {
     // Store the query params into a JavaScript Object
     const query = request.query;
 
-    const data = await Pizza.find(query);
+    const data = await Customer.find(query);
 
     response.json(data);
   } catch (error) {
@@ -42,7 +42,7 @@ router.get("/", async (request, response) => {
 // Get a single pizza by ID
 router.get("/:id", async (request, response) => {
   try {
-    const data = await Pizza.findById(request.params.id);
+    const data = await Customer.findById(request.params.id);
 
     response.json(data);
   } catch (error) {
@@ -58,7 +58,7 @@ router.put("/:id", async (request, response) => {
   try {
     const body = request.body;
 
-    const data = await Pizza.findByIdAndUpdate(
+    const data = await Customer.findByIdAndUpdate(
       request.params.id,
       {
         $set: {
@@ -88,7 +88,7 @@ router.put("/:id", async (request, response) => {
 // Delete a pizza by ID
 router.delete("/:id", async (request, response) => {
   try {
-    const data = await Pizza.findByIdAndRemove(request.params.id, {});
+    const data = await Customer.findByIdAndRemove(request.params.id, {});
 
     response.json(data);
   } catch (error) {
